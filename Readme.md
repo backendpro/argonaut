@@ -2,7 +2,7 @@
 - REST API
 
 ## Stack
-- Gradle 6.7
+- Gradle 7.4
 - Java 11
 - Spring Boot 2.6.3
 - MySQL 5.6
@@ -24,14 +24,14 @@
 student {
   "id": "Long",
   "name": "String",
-  "document": "String",
+  "identityNumber": "String",
   "studentSince": "LocalDate",
   "birthdate": "LocalDate",
   "cellphone": "Long",
   "email": "String",  
   "postalCode": "String",
   "addressLine": "String",
-  "bill": "String",
+  "monthlyBill": "double",
   "lastPayDate": "LocalDate"
 }
 ```
