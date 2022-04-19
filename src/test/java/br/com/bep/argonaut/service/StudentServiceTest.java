@@ -20,7 +20,7 @@ public class StudentServiceTest {
     StudentDTO request;
 
     @BeforeEach
-    public void setUp(){
+    public void setUp() {
         request = new StudentDTO();
         request.setName("Caio");
         request.setEmail("email@email.com");
@@ -70,5 +70,10 @@ public class StudentServiceTest {
         assertEquals(request.getPostalCode(), response.get().getPostalCode());
         assertEquals(response.get().getMonthlyBill(), 0.0);
         assertNull(response.get().getLastPayDate());
+    }
+
+    @Test
+    public void test(){
+        System.out.println(LocalDate.now());
     }
 }

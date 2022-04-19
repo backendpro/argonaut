@@ -30,7 +30,7 @@ student {
   "name": "String",
   "identityNumber": "String",
   "studentSince": "LocalDate",
-  "birthdate": "LocalDate",
+  "birthDate": "LocalDate",
   "cellphone": "Long",
   "email": "String",  
   "postalCode": "String",

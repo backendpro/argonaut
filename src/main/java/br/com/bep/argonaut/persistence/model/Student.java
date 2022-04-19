@@ -22,7 +22,7 @@ public class Student {
     private LocalDate studentSince;
 
     @Column(name = "birthdate", nullable = false)
-    private LocalDate birthdate;
+    private LocalDate birthDate;
 
     @Column(name = "cellphone", nullable = false)
     private Long cellphone;
@@ -78,11 +78,11 @@ public class Student {
     }
 
     public LocalDate getBirthdate() {
-        return birthdate;
+        return birthDate;
     }
 
     public void setBirthdate(LocalDate birthdate) {
-        this.birthdate = birthdate;
+        this.birthDate = birthdate;
     }
 
     public Long getCellphone() {
