@@ -9,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -23,7 +22,7 @@ public class StudentController {
     public ResponseEntity<StudentDTO> create(@RequestBody StudentDTO request) {
         Optional<StudentDTO> response = service.create(request);
         if (response.isPresent()) {
-            return ResponseEntity.status(HttpStatus.CREATED).build();
+            return new ResponseEntity<>(response.get(), HttpStatus.CREATED);
         }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }

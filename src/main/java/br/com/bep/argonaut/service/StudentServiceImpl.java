@@ -38,7 +38,7 @@ public class StudentServiceImpl implements StudentService {
         Optional<Student> student = repository.findById(id);
 
         if (student.isPresent()) {
-            StudentDTO dto = mapper.map(student, StudentDTO.class);
+            StudentDTO dto = mapper.map(student.get(), StudentDTO.class);
             return Optional.of(dto);
         }
 

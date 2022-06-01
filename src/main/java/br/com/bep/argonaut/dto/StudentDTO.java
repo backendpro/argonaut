@@ -15,6 +15,8 @@ public class StudentDTO {
     private double monthlyBill;
     private LocalDate lastPayDate;
 
+    private boolean active;
+
     public String getName() {
         return name;
     }
@@ -93,5 +95,13 @@ public class StudentDTO {
 
     public void setLastPayDate(LocalDate lastPayDate) {
         this.lastPayDate = lastPayDate;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }
