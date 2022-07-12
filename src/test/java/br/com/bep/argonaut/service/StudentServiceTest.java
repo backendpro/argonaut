@@ -42,7 +42,7 @@ public class StudentServiceTest {
         Optional<StudentDTO> response = service.create(request);
 
         assertNotNull(response.get());
-        assertEquals("Caio", response.get().getName());
+        assertEquals(request.getName(), response.get().getName());
         assertEquals(request.getEmail(), response.get().getEmail());
         assertEquals(request.getAddressLine(), response.get().getAddressLine());
         assertEquals(request.getStudentSince(), response.get().getStudentSince());

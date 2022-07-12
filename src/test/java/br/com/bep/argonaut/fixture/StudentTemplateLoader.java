@@ -21,7 +21,7 @@ public class StudentTemplateLoader implements TemplateLoader {
             add("email", "email@email.com.br");
             add("postalCode", "13123456");
             add("addressLine", random("Rua A, bairro B", "Rua Sete, Bairro Loucura Bicho"));
-            add("monthlyBill", range(199.90, 999.99));
+            add("monthlyBill", random(Double.class, range(199.90, 999.99)));
             add("lastPayDate", LocalDate.now());
         }});
         Fixture.of(Student.class).addTemplate("valid-entity", new Rule() {{
