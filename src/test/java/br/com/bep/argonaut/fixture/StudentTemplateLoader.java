@@ -12,19 +12,19 @@ public class StudentTemplateLoader implements TemplateLoader {
 
     @Override
     public void load() {
-        Fixture.of(StudentDTO.class).addTemplate("valid", new Rule(){{
-            add("name", "Caio");
+        Fixture.of(StudentDTO.class).addTemplate("valid", new Rule() {{
+            add("name", random("Caio", "Will", "Eleven", "Mike"));
             add("identityNumber", "1238589");
             add("studentSince", LocalDate.now());
             add("birthDate", LocalDate.now());
             add("cellphone", 1234567894L);
             add("email", "email@email.com.br");
             add("postalCode", "13123456");
-            add("addressLine", "Rua A, bairro B");
-            add("monthlyBill", 199.90);
+            add("addressLine", random("Rua A, bairro B", "Rua Sete, Bairro Loucura Bicho"));
+            add("monthlyBill", range(199.90, 999.99));
             add("lastPayDate", LocalDate.now());
         }});
-        Fixture.of(Student.class).addTemplate("valid-entity", new Rule(){{
+        Fixture.of(Student.class).addTemplate("valid-entity", new Rule() {{
             add("id", 1L);
             add("name", "Caio");
             add("identityNumber", "1238589");

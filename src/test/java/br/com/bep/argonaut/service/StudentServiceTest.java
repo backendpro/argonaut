@@ -5,8 +5,6 @@ import br.com.bep.argonaut.persistence.model.Student;
 import br.com.bep.argonaut.persistence.repository.StudentRepository;
 import br.com.six2six.fixturefactory.Fixture;
 import br.com.six2six.fixturefactory.loader.FixtureFactoryLoader;
-import org.hamcrest.MatcherAssert;
-import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +42,7 @@ public class StudentServiceTest {
         Optional<StudentDTO> response = service.create(request);
 
         assertNotNull(response.get());
-        assertEquals(request.getName(), response.get().getName());
+        assertEquals("Caio", response.get().getName());
         assertEquals(request.getEmail(), response.get().getEmail());
         assertEquals(request.getAddressLine(), response.get().getAddressLine());
         assertEquals(request.getStudentSince(), response.get().getStudentSince());
@@ -95,10 +93,29 @@ public class StudentServiceTest {
     }
 
     @Test
+    public void shouldGetStudentByIdOptionalEmpty() {
+        Optional<StudentDTO> response = service.getById(100L);
+        assertNotNull(response);
+    }
+
+    @Test
     public void shouldGetAll() {
         Page<StudentDTO> responses = service.getAll(Pageable.ofSize(10));
         assertNotNull(responses.getContent());
         assertThat(responses.getContent().size(), greaterThan(0));
+    }
+
+    @Test
+    public void shouldDeleteStudent() {
+        Student student = repository.findAll().get(0);
+        boolean response = service.delete(student.getId());
+        assertTrue(response);
+    }
+
+    @Test
+    public void shouldNotDeleteStudent() {
+        boolean response = service.delete(999L);
+        assertFalse(response);
     }
 
     @Test

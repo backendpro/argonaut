@@ -41,7 +41,6 @@ public class StudentServiceImpl implements StudentService {
             StudentDTO dto = mapper.map(student.get(), StudentDTO.class);
             return Optional.of(dto);
         }
-
         return Optional.empty();
     }
 
